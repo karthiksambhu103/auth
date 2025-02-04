@@ -8,7 +8,13 @@ const port = 5000;
 
 
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://authkrs20.netlify.app', // Your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization', 'auth-token'] // Allowed headers
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Available Routes
